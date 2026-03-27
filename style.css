@@ -4,7 +4,12 @@
 	/* =========
 	Color System
 	========= */
-	--color-primary: #3f5f73;
+	/* Blue-tone rebalance: keep footer deep and trustworthy */
+	--color-primary: #4f7083;
+	/* Blue-gray tuning for mobile nav hover visibility */
+	--color-nav-hover-bg: #6f8797;
+	/* Trust strip sits slightly brighter than footer for role separation */
+	--color-trust-strip: #6f8797;
 	--color-primary-light: #6B6642;
 
 	--color-accent: #A67458;
@@ -37,7 +42,6 @@
 	/* Border / Overlay / Shadow */
 	--color-border: rgba(191, 185, 174, 0.45);
 	--color-header-bg: rgba(255, 255, 255, 0.8);
-	--color-nav-hover-bg: #595334;
 	--color-overlay-dark: rgba(0, 0, 0, 0.62);
 	--color-overlay-light: rgba(0, 0, 0, 0.18);
 	--color-white-90: rgba(255, 255, 255, 0.9);
@@ -555,7 +559,8 @@ Trust Strip
 
 .trust-strip {
 	padding: 1.25rem 0;
-	background-color: var(--color-primary);
+	/* Slightly lighter than footer to reduce visual heaviness */
+	background-color: var(--color-trust-strip);
 }
 
 .trust-strip-inner {

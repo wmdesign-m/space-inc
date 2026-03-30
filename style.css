@@ -1262,19 +1262,19 @@ Tablet 767px以下
 	}
 
 	.main-visual {
-		height: 520px;
+		height: 560px;
 		padding: 1.875rem 1rem 3.25rem;
 	}
 
 .main-visual-inner {
-	padding-top: 40px;
 	width: 100%;
 	max-width: 680px;
 	margin: 0;
-	padding-left: 28px;
+	padding-top: 12px;
+	padding-left: 24px;
 	padding-right: 16px;
 	text-align: left;
-	row-gap: 1rem;
+	row-gap: 0.9rem;
 }
 
 .main-copy-sub {
@@ -1465,7 +1465,7 @@ Smartphone 559px以下
 	}
 
 	.main-visual {
-		height: 480px;
+		height: 500px;
 		padding: 1.5rem 1rem 2.5rem;
 	}
 
@@ -1473,10 +1473,10 @@ Smartphone 559px以下
 	width: 100%;
 	max-width: 100%;
 	margin: 0;
-	padding-left: 20px;
-	padding-right: 12px;
+	padding-left: 16px;
+	padding-right: 16px;
 	text-align: left;
-	row-gap: 0.8rem;
+	row-gap: 0.65rem;
 }
 
 .main-copy-sub {

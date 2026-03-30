@@ -523,6 +523,9 @@ Main Visual
 .hero-title-emphasis {
 	display: block;
 }
+.hero-title-emphasis {
+	display: block;
+}
 
 .hero-title-lead {
 	font-size: 0.82em;
@@ -1293,37 +1296,37 @@ Tablet 767px以下
 		padding: 1.875rem 1rem 3.25rem;
 	}
 
-	.main-visual-inner {
-		width: 100%;
-		max-width: 680px;
-		margin: 0;
-		padding-left: 28px;
-		padding-right: 16px;
-		text-align: left;
-		row-gap: 1rem;
-	}
+.main-visual-inner {
+	width: 100%;
+	max-width: 680px;
+	margin: 0;
+	padding-left: 28px;
+	padding-right: 16px;
+	text-align: left;
+	row-gap: 1rem;
+}
 
-	.main-copy-sub {
-		margin: 0;
-	}
+.main-copy-sub {
+	margin: 0;
+}
 
-	.main-visual h1 {
-		max-width: 12.8em;
-		font-size: clamp(2rem, 5.2vw, 2.8rem);
-		line-height: 1.22;
-		letter-spacing: 0.03em;
-	}
+.main-visual h1 {
+	max-width: 12.8em;
+	font-size: clamp(2rem, 5.2vw, 2.8rem);
+	line-height: 1.22;
+	letter-spacing: 0.03em;
+}
 
-	.main-copy-text {
-		margin: 0;
-		max-width: 32ch;
-		font-size: 0.95rem;
-		line-height: 1.85;
-	}
+.main-copy-text {
+	margin: 0;
+	max-width: 32ch;
+	font-size: 0.95rem;
+	line-height: 1.85;
+}
 
-	.main-cta {
-		margin-top: 0.4rem;
-	}
+.main-cta {
+	margin-top: 0.4rem;
+}
 
 	.slider-dots {
 		bottom: 18px;
@@ -1495,62 +1498,62 @@ Smartphone 559px以下
 		padding: 1.5rem 1rem 2.5rem;
 	}
 
-	.main-visual-inner {
-		width: 100%;
-		max-width: 100%;
-		margin: 0;
-		padding-left: 20px;
-		padding-right: 12px;
-		text-align: left;
-		row-gap: 0.8rem;
-	}
+.main-visual-inner {
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	padding-left: 20px;
+	padding-right: 12px;
+	text-align: left;
+	row-gap: 0.8rem;
+}
 
-	.main-copy-sub {
-		margin: 0;
-		font-size: 0.82rem;
-		letter-spacing: 0.11em;
-	}
+.main-copy-sub {
+	margin: 0;
+	font-size: 0.82rem;
+	letter-spacing: 0.11em;
+}
 
-	.main-visual h1 {
-		max-width: 100%;
-		font-size: clamp(1.45rem, 7.4vw, 1.75rem);
-		line-height: 1.28;
-		letter-spacing: 0.028em;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.36);
-	}
+.main-visual h1 {
+	max-width: 100%;
+	font-size: clamp(1.45rem, 7.4vw, 1.75rem);
+	line-height: 1.28;
+	letter-spacing: 0.028em;
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.36);
+}
 
-	.hero-title-lead,
-	.hero-title-mid,
-	.hero-title-emphasis {
-		display: block;
-		font-size: inherit;
-		font-weight: inherit;
-		letter-spacing: 0.03em;
-	}
+.hero-title-lead,
+.hero-title-mid,
+.hero-title-emphasis {
+	display: block;
+	font-size: inherit;
+	font-weight: inherit;
+	letter-spacing: 0.03em;
+}
 
-	.hero-title-lead {
-		font-size: 0.92em;
-	}
+.hero-title-lead {
+	font-size: 0.92em;
+}
 
-	.hero-title-mid {
-		font-size: 0.96em;
-	}
+.hero-title-mid {
+	font-size: 0.96em;
+}
 
-	.hero-title-emphasis {
-		margin-top: 0.08em;
-		font-size: 1.03em;
-	}
+.hero-title-emphasis {
+	margin-top: 0.08em;
+	font-size: 1.03em;
+}
 
-	.main-copy-text {
-		margin: 0;
-		max-width: 30ch;
-		font-size: 0.9rem;
-		line-height: 1.75;
-	}
+.main-copy-text {
+	margin: 0;
+	max-width: 30ch;
+	font-size: 0.9rem;
+	line-height: 1.75;
+}
 
-	.main-cta {
-		margin-top: 0.3rem;
-	}
+.main-cta {
+	margin-top: 0.3rem;
+}
 
 	.slider-dots {
 		bottom: 14px;

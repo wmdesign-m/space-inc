@@ -420,21 +420,6 @@ Main Visual
 	display: none;
 }
 
-.main-visual::after {
-	content: "SPACE";
-	position: absolute;
-	top: 110px;
-	left: clamp(24px, 5vw, 72px);
-	font-family: "Inter", sans-serif;
-	font-size: clamp(8rem, 20vw, 17rem);
-	font-weight: 700;
-	letter-spacing: 0.03em;
-	line-height: 0.85;
-	color: rgba(255, 255, 255, 0.09);
-	pointer-events: none;
-	z-index: 2;
-}
-
 .main-visual::before {
 	content: "";
 	position: absolute;
@@ -1282,6 +1267,7 @@ Tablet 767px以下
 	}
 
 .main-visual-inner {
+	padding-top: 40px;
 	width: 100%;
 	max-width: 680px;
 	margin: 0;
@@ -1523,7 +1509,7 @@ Smartphone 559px以下
 
 .main-copy-text {
 	margin: 0;
-	max-width: 30ch;
+	max-width: none;
 	font-size: 0.9rem;
 	line-height: 1.75;
 }

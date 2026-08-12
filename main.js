@@ -1,98 +1,110 @@
-$(function () {
-	let sliderTimer = null;
-	let currentSliderSelector = '';
-
-	function getActiveSliderSelector() {
-		return window.matchMedia('(max-width: 767px)').matches ? '.sp-slider' : '.pc-slider';
-	}
-
-	function updateDots($dots, index) {
-		$dots.removeClass('active').attr('aria-current', 'false');
-		$dots.eq(index).addClass('active').attr('aria-current', 'true');
-	}
-
-	function stopSlider() {
-		if (sliderTimer) {
-			clearInterval(sliderTimer);
-			sliderTimer = null;
-		}
-	}
-
-	function startSlider(target) {
-		const $slider = $(target);
-		const $slides = $slider.find('.main-slide');
-		const $dots = $('.slider-dots .dot');
-		const total = $slides.length;
-		let current = 0;
-
-		if (total <= 1) return;
-
-		$('.main-slide').removeClass('is-active');
-		$slides.eq(0).addClass('is-active');
-		updateDots($dots, 0);
-
-		function showSlide(index) {
-			$slides.removeClass('is-active');
-			$slides.eq(index).addClass('is-active');
-			updateDots($dots, index);
-			current = index;
-		}
-
-		function restartAutoSlide() {
-			stopSlider();
-			sliderTimer = setInterval(function () {
-				const next = (current + 1) % total;
-				showSlide(next);
-			}, 5500);
-		}
-
-		$dots.off('click.slider').on('click.slider', function () {
-			const index = $(this).index();
-			showSlide(index);
-			restartAutoSlide();
-		});
-
-		restartAutoSlide();
-	}
-
-	function initResponsiveSlider() {
-		const nextSelector = getActiveSliderSelector();
-
-		if (currentSliderSelector === nextSelector) return;
-
-		currentSliderSelector = nextSelector;
-		stopSlider();
-		startSlider(currentSliderSelector);
-	}
-
-	initResponsiveSlider();
-
-	let resizeTimer = null;
-	$(window).on('resize', function () {
-		clearTimeout(resizeTimer);
-		resizeTimer = setTimeout(function () {
-			initResponsiveSlider();
-		}, 200);
-	});
-
-	const hamburger = document.querySelector('.hamburger');
-	const nav = document.querySelector('.nav');
+(() => {
+	const hamburger = document.querySelector(".hamburger");
+	const nav = document.querySelector(".nav");
 
 	if (hamburger && nav) {
-		hamburger.addEventListener('click', function () {
-			hamburger.classList.toggle('active');
-			nav.classList.toggle('active');
+		const closeMenu = () => {
+			hamburger.classList.remove("active");
+			nav.classList.remove("active");
+			hamburger.setAttribute("aria-expanded", "false");
+			hamburger.setAttribute("aria-label", "メニューを開く");
+		};
 
-			const expanded = hamburger.classList.contains('active');
-			hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+		hamburger.addEventListener("click", () => {
+			const isOpen = hamburger.classList.toggle("active");
+			nav.classList.toggle("active", isOpen);
+			hamburger.setAttribute("aria-expanded", String(isOpen));
+			hamburger.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
 		});
 
-		document.querySelectorAll('.nav a').forEach(function (link) {
-			link.addEventListener('click', function () {
-				hamburger.classList.remove('active');
-				nav.classList.remove('active');
-				hamburger.setAttribute('aria-expanded', 'false');
-			});
+		nav.querySelectorAll("a").forEach((link) => {
+			link.addEventListener("click", closeMenu);
+		});
+
+		document.addEventListener("keydown", (event) => {
+			if (event.key === "Escape") closeMenu();
 		});
 	}
-});
+
+	const dots = Array.from(document.querySelectorAll(".slider-dots .dot"));
+	let sliderTimer;
+	let activeSlider;
+	let currentIndex = 0;
+
+	const getActiveSlider = () => {
+		return window.matchMedia("(max-width: 767px)").matches
+			? document.querySelector(".sp-slider")
+			: document.querySelector(".pc-slider");
+	};
+
+	const showSlide = (index) => {
+		if (!activeSlider) return;
+		const slides = Array.from(activeSlider.querySelectorAll(".hero-slide"));
+		if (!slides.length) return;
+
+		currentIndex = index % slides.length;
+		slides.forEach((slide, slideIndex) => {
+			slide.classList.toggle("is-active", slideIndex === currentIndex);
+		});
+		dots.forEach((dot, dotIndex) => {
+			const isActive = dotIndex === currentIndex;
+			dot.classList.toggle("active", isActive);
+			dot.setAttribute("aria-current", String(isActive));
+		});
+	};
+
+	const startSlider = () => {
+		window.clearInterval(sliderTimer);
+		activeSlider = getActiveSlider();
+		currentIndex = 0;
+		showSlide(currentIndex);
+
+		const slides = activeSlider ? activeSlider.querySelectorAll(".hero-slide") : [];
+		if (slides.length <= 1) return;
+
+		sliderTimer = window.setInterval(() => {
+			showSlide(currentIndex + 1);
+		}, 5500);
+	};
+
+	dots.forEach((dot, index) => {
+		dot.addEventListener("click", () => {
+			showSlide(index);
+			startSlider();
+			showSlide(index);
+		});
+	});
+
+	startSlider();
+	window.addEventListener("resize", startSlider);
+
+	document.querySelectorAll(".faq-question").forEach((button) => {
+		button.addEventListener("click", () => {
+			const item = button.closest(".faq-item");
+			const isOpen = item.classList.toggle("is-open");
+			button.setAttribute("aria-expanded", String(isOpen));
+		});
+	});
+
+	const revealTargets = document.querySelectorAll(".reveal");
+	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	if (reduceMotion || !("IntersectionObserver" in window)) {
+		revealTargets.forEach((target) => target.classList.add("is-visible"));
+		return;
+	}
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("is-visible");
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{ threshold: 0.12 }
+	);
+
+	revealTargets.forEach((target) => observer.observe(target));
+})();

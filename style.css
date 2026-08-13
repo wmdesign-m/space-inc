@@ -473,6 +473,7 @@ p {
 }
 
 .stat-unit {
+	color: var(--color-accent);
 	font-family: var(--font-ja);
 	font-size: 0.42em;
 	font-weight: 700;

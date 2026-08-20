@@ -73,7 +73,7 @@
       <section class="hero" aria-label="メインビジュアル">
         <div class="hero-slider pc-slider" aria-hidden="true">
           <div class="hero-slide is-active">
-            <img src="img/hero-retail.webp" alt="" />
+            <img src="img/hero-retail.webp" alt="" fetchpriority="high" />
           </div>
           <div class="hero-slide">
             <img src="img/hero-office.webp" alt="" />
@@ -84,7 +84,7 @@
         </div>
         <div class="hero-slider sp-slider" aria-hidden="true">
           <div class="hero-slide is-active">
-            <img src="img/hero-sp-retail.webp" alt="" />
+            <img src="img/hero-sp-retail.webp" alt="" fetchpriority="high" />
           </div>
           <div class="hero-slide">
             <img src="img/hero-sp-office.webp" alt="" />
@@ -192,7 +192,11 @@
             </p>
           </div>
           <figure class="about-message-image">
-            <img src="img/about-l.webp" alt="内装施工後の落ち着いた空間" />
+            <img
+              src="img/about-l.webp"
+              alt="内装施工後の落ち着いた空間"
+              loading="lazy"
+            />
           </figure>
         </div>
       </section>
@@ -230,6 +234,7 @@
               <img
                 src="img/renovation.png"
                 alt="リノベーション・内装工事の施工イメージ"
+                loading="lazy"
               />
             </article>
 
@@ -242,7 +247,11 @@
                   退去時や入替時に必要な原状回復工事に対応しています。現場状況を丁寧に確認し、無駄のない工程で進行します。
                 </p>
               </div>
-              <img src="img/restoration.png" alt="原状回復工事の施工イメージ" />
+              <img
+                src="img/restoration.png"
+                alt="原状回復工事の施工イメージ"
+                loading="lazy"
+              />
             </article>
 
             <article class="service-item">
@@ -257,6 +266,7 @@
               <img
                 src="img/support.png"
                 alt="産廃代行・工事サポートの作業イメージ"
+                loading="lazy"
               />
             </article>
           </div>
@@ -281,7 +291,11 @@
 
           <div class="works-grid">
             <article class="work-item work-large">
-              <img src="img/case-study1.png" alt="住空間リフォームの施工事例" />
+              <img
+                src="img/case-study1.png"
+                alt="住空間リフォームの施工事例"
+                loading="lazy"
+              />
               <div class="work-caption">
                 <p class="work-number">01</p>
                 <h3>RESIDENCE RENOVATION</h3>
@@ -292,7 +306,11 @@
               </div>
             </article>
             <article class="work-item">
-              <img src="img/case-study2.png" alt="明るい玄関空間の施工事例" />
+              <img
+                src="img/case-study2.png"
+                alt="明るい玄関空間の施工事例"
+                loading="lazy"
+              />
               <div class="work-caption">
                 <p class="work-number">02</p>
                 <h3>ENTRANCE RENOVATION</h3>
@@ -304,6 +322,7 @@
               <img
                 src="img/case-study3.png"
                 alt="木の温もりを活かしたLDKの施工事例"
+                loading="lazy"
               />
               <div class="work-caption">
                 <p class="work-number">03</p>
@@ -316,6 +335,7 @@
               <img
                 src="img/case-study4.png"
                 alt="折り上げ天井と照明を活かした施工事例"
+                loading="lazy"
               />
               <div class="work-caption">
                 <p class="work-number">04</p>
@@ -330,6 +350,7 @@
               <img
                 src="img/case-study5.png"
                 alt="清潔感のあるサニタリー空間の施工事例"
+                loading="lazy"
               />
               <div class="work-caption">
                 <p class="work-number">05</p>
@@ -342,6 +363,7 @@
               <img
                 src="img/case-study6.png"
                 alt="モノトーンの改装工事の施工事例"
+                loading="lazy"
               />
               <div class="work-caption">
                 <p class="work-number">06</p>
@@ -387,7 +409,7 @@
               <dt>所在地</dt>
               <dd>東京都〇〇区〇〇</dd>
             </div>
-            <div class="company-outline-span">
+            <div>
               <dt>事業内容</dt>
               <dd>内装工事・原状回復工事・施工管理</dd>
             </div>
@@ -436,50 +458,75 @@
 
           <div class="faq-list">
             <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-01"
+              >
                 見積もりは無料ですか？
               </button>
-              <div class="faq-answer">
+              <div class="faq-answer" id="faq-answer-01">
                 <p>
                   はい、無料で対応しております。まずはお気軽にご相談ください。
                 </p>
               </div>
             </div>
             <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-02"
+              >
                 小規模でも対応可能ですか？
               </button>
-              <div class="faq-answer">
+              <div class="faq-answer" id="faq-answer-02">
                 <p>
                   可能です。規模に関わらず、内容に応じて柔軟に対応いたします。
                 </p>
               </div>
             </div>
             <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-03"
+              >
                 工期はどのくらいですか？
               </button>
-              <div class="faq-answer">
+              <div class="faq-answer" id="faq-answer-03">
                 <p>
                   工事内容により異なりますが、事前に目安をご説明した上で進めます。
                 </p>
               </div>
             </div>
             <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-04"
+              >
                 対応エリアはどこですか？
               </button>
-              <div class="faq-answer">
+              <div class="faq-answer" id="faq-answer-04">
                 <p>
                   主に関東エリアを中心に対応しています。詳細はお問い合わせください。
                 </p>
               </div>
             </div>
             <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-05"
+              >
                 協力会社応募の相談も可能ですか？
               </button>
-              <div class="faq-answer">
+              <div class="faq-answer" id="faq-answer-05">
                 <p>
                   はい、可能です。協力体制や条件について、個別にご案内いたします。
                 </p>
